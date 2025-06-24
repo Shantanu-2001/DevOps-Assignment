@@ -1,4 +1,3 @@
-Here's a clean and complete `README.md` for your assignment — suitable for GitHub submission, with instructions, routes, technologies, and bonus points covered:
 
 ---
 
