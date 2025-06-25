@@ -1,19 +1,16 @@
+# 📦 DevOps Assignment – Nginx Reverse Proxy with Docker Compose
 
----
-
-## 📦 DevOps Assignment – Nginx Reverse Proxy with Docker Compose
-
-This project sets up a microservice system with two backend services — one in Go and one in Python — behind a reverse proxy using **Nginx**, all containerized with **Docker** and orchestrated using **Docker Compose**.
+This project sets up a microservice system with two backend services — one in **Go** and one in **Python** — behind a reverse proxy using **Nginx**, all containerized with **Docker** and orchestrated using **Docker Compose**.
 
 ---
 
 ## 🧰 Technologies Used
 
-* 🐳 Docker & Docker Compose
-* 🌐 Nginx (Reverse Proxy)
-* ⚙️ Golang (Service 1)
-* 🐍 Python + Flask (Service 2)
-* ⚡ uv (for Python dependency management)
+- 🐳 Docker & Docker Compose  
+- 🌐 Nginx (Reverse Proxy)  
+- ⚙️ Golang (Service 1)  
+- 🐍 Python + Flask (Service 2)  
+- ⚡ uv (for Python dependency management)
 
 ---
 
@@ -41,8 +38,10 @@ This project sets up a microservice system with two backend services — one in 
 
 ### 1️⃣ Prerequisites
 
-* Docker Desktop installed
-* Internet connection to pull base images
+- Docker Desktop installed
+- Internet connection to pull base images
+
+---
 
 ### 2️⃣ Run the System
 
@@ -59,47 +58,48 @@ That’s it! 🎉 All services (Go, Python, and Nginx) will be built and started
 ## 🌐 Available Endpoints
 
 ### ✅ Go Service (Service 1)
-
-* `GET /service1/ping` → `{"status": "ok", "service": "1"}`
-* `GET /service1/hello` → `{"message": "Hello from Service 1"}`
+- `GET /service1/ping` → `{"status": "ok", "service": "1"}`
+- `GET /service1/hello` → `{"message": "Hello from Service 1"}`
 
 ### ✅ Python Flask Service (Service 2)
+- `GET /service2/ping` → `{"status": "ok", "service": "2"}`
+- `GET /service2/hello` → `{"message": "Hello from Service 2"}`
 
-* `GET /service2/ping` → `{"status": "ok", "service": "2"}`
-* `GET /service2/hello` → `{"message": "Hello from Service 2"}`
+> Access these endpoints via:
 
-Access them via:
-
-```bash
-http://localhost:8080/service1/ping
-http://localhost:8080/service2/ping
-```
+- [http://localhost:8080/service1/ping](http://localhost:8080/service1/ping)
+- [http://localhost:8080/service2/ping](http://localhost:8080/service2/ping)
 
 ---
 
 ## 🌐 How Routing Works
 
-* **Nginx** listens on `localhost:8080`
-* Routes `/service1/*` to Go backend at port `8001`
-* Routes `/service2/*` to Python backend at port `8002`
-* All routing is based on URL prefixes
+- Nginx listens on **localhost:8080**
+- Routes:
+  - `/service1/*` → Go backend on port `8001`
+  - `/service2/*` → Python backend on port `8002`
+- All routing is based on **URL path prefixes**
 
 ---
 
-## 📝 Bonus Features
+## 📝 Key Features
 
-* ✅ Reverse proxy with clean path-based routing
-* ✅ Container logs via Docker
-* ✅ Modular Docker setup with custom Dockerfiles
-* ✅ Uses `uv` in Python service as per project requirement
-* 🔄 Easily extensible with health checks or CI/CD later
+- ✅ Reverse proxy setup with clean routing
+- ✅ Logs for every request via Docker logs
+- ✅ Modular Docker setup with separate Dockerfiles
+- ✅ Uses `uv` in Python service as required
+- 🔄 Easily extensible with health checks or CI/CD in the future
 
 ---
 
 ## 🧹 Stopping the System
 
+To stop and clean up all containers:
+
 ```bash
 docker-compose down
 ```
 
-This will stop and clean up all containers.
+---
+
+Let me know if you'd like this exported as a file or help pushing to GitHub!
