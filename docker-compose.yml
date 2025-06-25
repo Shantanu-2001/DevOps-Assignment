@@ -1,23 +1,23 @@
-version: "3.8"
+version: "3.8"  # Specifies the version of the Docker Compose syntax being used
 
 services:
-  service1:
-    build: ./service_1
+  service1:  # Definition of the first backend service (Golang)
+    build: ./service_1  # Dockerfile path to build the Go service
     ports:
-      - "8001:8001"
-    container_name: service1
+      - "8001:8001"  # Maps port 8001 of host to port 8001 of container
+    container_name: service1  # Custom name for this container
 
-  service2:
-    build: ./service_2
+  service2:  # Definition of the second backend service (Python Flask with uv)
+    build: ./service_2  # Dockerfile path to build the Python service
     ports:
-      - "8002:8002"
-    container_name: service2
+      - "8002:8002"  # Maps port 8002 of host to port 8002 of container
+    container_name: service2  # Custom name for this container
 
-  nginx:
-    build: ./nginx
+  nginx:  # Definition of the Nginx reverse proxy service
+    build: ./nginx  # Dockerfile path for building the Nginx container
     ports:
-      - "8080:80"
+      - "8080:80"  # Maps host port 8080 to container port 80 (default Nginx port)
     depends_on:
-      - service1
-      - service2
-    container_name: nginx-proxy
+      - service1  # Ensures service1 container is started before nginx
+      - service2  # Ensures service2 container is started before nginx
+    container_name: nginx-proxy  # Custom name for the Nginx proxy container
