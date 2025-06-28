@@ -102,4 +102,3 @@ docker-compose down
 
 ---
 
-Let me know if you'd like this exported as a file or help pushing to GitHub!
